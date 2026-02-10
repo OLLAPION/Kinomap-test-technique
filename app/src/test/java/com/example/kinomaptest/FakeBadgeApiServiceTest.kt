@@ -69,7 +69,7 @@ class FakeBadgeApiServiceTest {
                 .setBody(json)
         )
 
-        val response = service.getBadges()
+        val response = service.getBadges(appToken = "test-token")
 
         // parsing
         assertEquals(1, response.data.size)
@@ -79,6 +79,6 @@ class FakeBadgeApiServiceTest {
 
         // request path
         val request = server.takeRequest()
-        assertTrue(request.path!!.startsWith("/v4/badges/mobile-tech-test?appToken="))
+        assertEquals("/v4/badges/mobile-tech-test?appToken=test-token", request.path)
     }
 }

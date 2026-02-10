@@ -45,7 +45,7 @@ class BadgeRepositoryImplTest {
         val result = repo.seedIfEmpty()
 
         assertTrue(result.isSuccess)
-        coVerify(exactly = 0) { api.getBadges() }
+        coVerify(exactly = 0) { api.getBadges(any()) }
         coVerify(exactly = 0) { dao.insertAll(any<List<BadgeDTO>>()) }
     }
 
@@ -64,7 +64,7 @@ class BadgeRepositoryImplTest {
             imagesUrl = ImageUrlDTO(unlocked = "u", locked = "l")
         )
         val categoryDto = BadgeCategoryDTO(name = "Cat", badges = listOf(apiBadge))
-        coEvery { api.getBadges() } returns BadgeApiResponse(data = listOf(categoryDto))
+        coEvery { api.getBadges(any()) } returns BadgeApiResponse(data = listOf(categoryDto))
 
         val entity = mockk<BadgeDTO>()
         every { apiMapper.fromApiToDto(apiBadge) } returns entity
@@ -74,14 +74,14 @@ class BadgeRepositoryImplTest {
         val result = repo.seedIfEmpty()
 
         assertTrue(result.isSuccess)
-        coVerify(exactly = 1) { api.getBadges() }
+        coVerify(exactly = 1) { api.getBadges(any()) }
         coVerify(exactly = 1) { dao.insertAll(match { it.size == 1 }) }
     }
 
     @Test
     fun `seedIfEmpty returns failure when api throws`() = runTest {
         coEvery { dao.getAll() } returns emptyList()
-        coEvery { api.getBadges() } throws RuntimeException("network")
+        coEvery { api.getBadges(any()) } throws RuntimeException("network")
 
         val result = repo.seedIfEmpty()
 
