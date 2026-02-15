@@ -2,8 +2,9 @@ package com.example.kinomaptest.data.mapper
 
 import com.example.kinomaptest.data.local.entity.BadgeDTO
 import com.example.kinomaptest.domain.model.Badge
+import javax.inject.Inject
 
-class BadgeMapper {
+class BadgeMapper @Inject constructor() {
 
     fun toDto(badge: Badge) : BadgeDTO {
         return BadgeDTO(

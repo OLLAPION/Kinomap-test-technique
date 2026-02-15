@@ -25,6 +25,8 @@ okhttp = "4.11.0"
 gson = "2.10.1"
 turbine = "1.1.0"
 mockwebserver = "4.11.0"
+javapoet = "1.13.0"
+glideCompose = "1.0.0-beta01"
 
 
 [libraries]
@@ -68,6 +70,9 @@ okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
 mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
+javapoet = { group = "com.squareup", name = "javapoet", version.ref = "javapoet" }
+glide-compose = { module = "com.github.bumptech.glide:compose", version.ref = "glideCompose" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

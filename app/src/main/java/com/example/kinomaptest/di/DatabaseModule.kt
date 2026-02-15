@@ -27,5 +27,6 @@ object DatabaseModule {
     }
 
     @Provides
+    @Singleton
     fun provideBadgeDao(appDatabase: AppDatabase): BadgeDAO = appDatabase.badgeDAO()
 }

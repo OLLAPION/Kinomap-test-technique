@@ -6,13 +6,13 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class ObserveBadgesFilteredUseCase @Inject constructor(
-    private val repo: BadgeRepository
+    private val repository: BadgeRepository
 ) {
     operator fun invoke(selectedCategories: Set<String>): Flow<List<Badge>> {
         return if (selectedCategories.isEmpty()) {
-            repo.observeAllBadges()
+            repository.observeAllBadges()
         } else {
-            repo.observeBadgesByCategories(selectedCategories.toList())
+            repository.observeBadgesByCategories(selectedCategories.toList())
         }
     }
 }

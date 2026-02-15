@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.google.services)
 }
 
 
@@ -103,6 +104,9 @@ dependencies {
     implementation(libs.okhttp.logging)
     implementation(libs.gson)
 
+    // Images (Glide Compose
+    implementation(libs.glide.compose)
+
     // Tests
     testImplementation(libs.mockito.core)
     androidTestImplementation(libs.hilt.android.testing)
@@ -117,7 +121,6 @@ dependencies {
     implementation(libs.androidx.junit.ktx)
     testImplementation(libs.turbine)
     testImplementation(libs.mockwebserver)
-
 
     // Debug
     debugImplementation(libs.androidx.ui.tooling)

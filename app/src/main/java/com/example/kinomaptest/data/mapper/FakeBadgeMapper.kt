@@ -3,8 +3,9 @@ package com.example.kinomaptest.data.mapper
 import com.example.kinomaptest.data.local.entity.BadgeDTO
 import com.example.kinomaptest.data.remote.dto.FakeBadgeDTO
 import java.time.Instant
+import javax.inject.Inject
 
-class FakeBadgeMapper {
+class FakeBadgeMapper @Inject constructor() {
 
     fun fromApiToDto(api: FakeBadgeDTO): BadgeDTO {
         return BadgeDTO(
