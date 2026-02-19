@@ -102,6 +102,9 @@ fun DrawerContent(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun App() {
+
+    //Désactivation Auth Firebase
+    /*
     val auth = remember { FirebaseAuth.getInstance() }
     var isLoggedIn by remember { mutableStateOf(auth.currentUser != null) }
     val user = auth.currentUser
@@ -118,6 +121,11 @@ fun App() {
         LoginScreen(onLoggedIn = { /* le listener it's enough */ })
         return
     }
+
+     */
+
+    // bypass Auth
+    val user: com.google.firebase.auth.FirebaseUser? = null
 
     // Main nav controller for Compose Navigation
     val navController = rememberNavController()
